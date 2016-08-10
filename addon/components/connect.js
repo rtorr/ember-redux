@@ -25,7 +25,7 @@ var connect = function(mapStateToComputed, mapDispatchToActions) {
             redux: Ember.inject.service('redux'),
             init() {
                 var component = this;
-                component['actions'] = Ember.$.extend({}, component['actions']);
+                component['actions'] = Object.assign({}, component['actions']);
                 var redux = this.get('redux');
                 var props = mapState(redux.getState());
                 var dispatch = mapDispatch(redux.dispatch.bind(redux));
